@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://brw11q240wqkp"]
+
+[ext_resource type="PackedScene" uid="uid://cvm0r7piq6xp" path="res://Dude.tscn" id="1_80nbo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e2o6t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_feb5d"]
+normal = Vector2(-0.007842896, -0.99996924)
+distance = -282.5563
+
+[node name="Game" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(356, 74)
+physics_material_override = SubResource("PhysicsMaterial_e2o6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_feb5d")
+
+[node name="CharacterBody2D" parent="StaticBody2D" instance=ExtResource("1_80nbo")]
+position = Vector2(8, 140)
