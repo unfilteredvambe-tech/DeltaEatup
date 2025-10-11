@@ -18,4 +18,4 @@ physics_material_override = SubResource("PhysicsMaterial_e2o6t")
 shape = SubResource("WorldBoundaryShape2D_feb5d")
 
 [node name="CharacterBody2D" parent="StaticBody2D" instance=ExtResource("1_80nbo")]
-position = Vector2(8, 140)
+position = Vector2(-35, 239)
