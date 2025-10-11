@@ -1,12 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://brw11q240wqkp"]
+[gd_scene load_steps=7 format=3 uid="uid://brw11q240wqkp"]
 
 [ext_resource type="PackedScene" uid="uid://cvm0r7piq6xp" path="res://Dude.tscn" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://bgschocpuqbrr" path="res://assets/Terrain (16x16).png" id="1_e2o6t"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e2o6t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_feb5d"]
 normal = Vector2(-0.007842896, -0.99996924)
-distance = -282.5563
+distance = -360.79282
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
+texture = ExtResource("1_e2o6t")
+margins = Vector2i(1, 0)
+texture_region_size = Vector2i(7, 16)
+0:5/0 = 0
+0:6/0 = 0
+14:4/size_in_atlas = Vector2i(4, 1)
+14:4/0 = 0
+14:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.028981, -7.1943483, -8, -6.834631, 13.849123, -6.834631, 13.849123, 8.093643, -13.3095455, 8.273502, -13.669264, 6.6547737)
+14:5/size_in_atlas = Vector2i(4, 1)
+14:5/0 = 0
+14:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.028981, -7.1943483, -8, -6.834631, 13.849123, -6.834631, 13.849123, 8.093643, -13.3095455, 8.273502, -13.669264, 6.6547737)
+
+[sub_resource type="TileSet" id="TileSet_fc0e3"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_feb5d")
 
 [node name="Game" type="Node2D"]
 
@@ -17,5 +35,10 @@ physics_material_override = SubResource("PhysicsMaterial_e2o6t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_feb5d")
 
-[node name="CharacterBody2D" parent="StaticBody2D" instance=ExtResource("1_80nbo")]
-position = Vector2(-35, 239)
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_fc0e3")
+format = 2
+layer_0/tile_data = PackedInt32Array(917512, 0, 5, 983048, 0, 5, 1048584, 0, 5, 1114120, 0, 5, 1179656, 0, 5, 1245192, 0, 5, 1310728, 0, 5, 1376264, 0, 5, 1441800, 0, 5, 1507336, 0, 6, 1441809, 917504, 4, 1441810, 917504, 4, 1507344, 917504, 5, 1507345, 917504, 5, 1507346, 917504, 5, 1507347, 917504, 5, 1507348, 917504, 5, 1507349, 917504, 5, 1507350, 917504, 5, 1507351, 917504, 5, 1638416, 917504, 5, 1638417, 917504, 5, 1638418, 917504, 5, 1638419, 917504, 5, 1638420, 917504, 5, 1638421, 917504, 5, 1638422, 917504, 5, 1638423, 917504, 5, 1638424, 917504, 5, 1572886, 917504, 5, 1572887, 917504, 5, 1572888, 917504, 5, 1441808, 917504, 4, 1441811, 917504, 4, 1441812, 917504, 4, 1441813, 917504, 4, 1441814, 917504, 4, 1441815, 917504, 4, 1441816, 917504, 4, 1507352, 917504, 5, 1572880, 917504, 5, 1572881, 917504, 5, 1572882, 917504, 5, 1572883, 917504, 5, 1572884, 917504, 5, 1572885, 917504, 5)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_80nbo")]
+position = Vector2(321, 313)
