@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://y4wosu8y5mj7"]
+
+[ext_resource type="Script" uid="uid://4ffgakjcn1dr" path="res://Scripts/player.gd" id="1_62lrj"]
+[ext_resource type="Texture2D" uid="uid://cpwhn4c7odyhu" path="res://icon.svg" id="2_2vneg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qx4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3g1t"]
+atlas = ExtResource("2_2vneg")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwsyw"]
+atlas = ExtResource("2_2vneg")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk14i"]
+atlas = ExtResource("2_2vneg")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0285v"]
+atlas = ExtResource("2_2vneg")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6or2m"]
+atlas = ExtResource("2_2vneg")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ex7g"]
+atlas = ExtResource("2_2vneg")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epph1"]
+atlas = ExtResource("2_2vneg")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4logd"]
+atlas = ExtResource("2_2vneg")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xe60"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3g1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwsyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk14i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0285v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6or2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ex7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epph1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4logd")
+}],
+"loop": true,
+"name": &"RANDOM FRAMES INPUT",
+"speed": 5.0
+}]
+
+[node name="proper playeer finished" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_62lrj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_5qx4t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_0xe60")
+animation = &"RANDOM FRAMES INPUT"
+frame_progress = 0.77598196
