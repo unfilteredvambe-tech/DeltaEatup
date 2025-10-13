@@ -1,5 +1,16 @@
 extends CharacterBody2D
+class_name State
 
+func enter() -> void:
+		pass
+
+func exit() -> void:
+	pass
+func process_frame(delta:float) -> State:
+		return null
+
+func process_input(event :InputEvent) -> State:
+	return null
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
