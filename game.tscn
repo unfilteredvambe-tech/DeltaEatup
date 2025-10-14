@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://brw11q240wqkp"]
+[gd_scene load_steps=8 format=3 uid="uid://brw11q240wqkp"]
 
 [ext_resource type="PackedScene" uid="uid://cvm0r7piq6xp" path="res://Dude.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://bgschocpuqbrr" path="res://assets/Terrain (16x16).png" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://sjtwdqn65xp1" path="res://Scenes/frog.tscn" id="3_feb5d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e2o6t"]
 
@@ -82,3 +83,9 @@ layer_0/tile_data = PackedInt32Array(1441809, 917504, 4, 1441810, 917504, 4, 150
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(321, 313)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(3, 3)
+
+[node name="frog" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(483, 330)

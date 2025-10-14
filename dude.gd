@@ -1,16 +1,4 @@
 extends CharacterBody2D
-class_name State
-
-func enter() -> void:
-		pass
-
-func exit() -> void:
-	pass
-func process_frame(delta:float) -> State:
-		return null
-
-func process_input(event :InputEvent) -> State:
-	return null
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -28,9 +16,25 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("LEFT", "RIGHT")
+	
+	if direction > 0:
+		animatedsprite.flip_h = false
+	elif direction < 0:
+		animatedsprite.flip_h  = true
+	
+
+
+
+	if  direction  == 0: 
+		animatedsprite.play("normal")
+	else:
+		animatedsprite.play("running")
+	
+		
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+@onready var animatedsprite = $CollisionShape2D/AnimatedSprite2D
