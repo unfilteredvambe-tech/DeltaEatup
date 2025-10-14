@@ -5,6 +5,34 @@
 [ext_resource type="Texture2D" uid="uid://b3rvubyvr1bmf" path="res://assets/sprites/Free assets/Main Characters/Ninja Frog/Hit (32x32).png" id="2_xvrdk"]
 [ext_resource type="Texture2D" uid="uid://imy3qobhukd2" path="res://assets/sprites/Free assets/Main Characters/Ninja Frog/Run (32x32).png" id="3_anyvr"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbtt2"]
+atlas = ExtResource("2_xvrdk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23tcg"]
+atlas = ExtResource("2_xvrdk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmudx"]
+atlas = ExtResource("2_xvrdk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkalq"]
+atlas = ExtResource("2_xvrdk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apwx7"]
+atlas = ExtResource("2_xvrdk")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai0vt"]
+atlas = ExtResource("2_xvrdk")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgm6k"]
+atlas = ExtResource("2_xvrdk")
+region = Rect2(192, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hdff1"]
 atlas = ExtResource("1_c3muq")
 region = Rect2(0, 0, 32, 32)
@@ -48,34 +76,6 @@ region = Rect2(288, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o6qwv"]
 atlas = ExtResource("1_c3muq")
 region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qbtt2"]
-atlas = ExtResource("2_xvrdk")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_23tcg"]
-atlas = ExtResource("2_xvrdk")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tmudx"]
-atlas = ExtResource("2_xvrdk")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tkalq"]
-atlas = ExtResource("2_xvrdk")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apwx7"]
-atlas = ExtResource("2_xvrdk")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ai0vt"]
-atlas = ExtResource("2_xvrdk")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fgm6k"]
-atlas = ExtResource("2_xvrdk")
-region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iq2xu"]
 atlas = ExtResource("3_anyvr")
@@ -129,6 +129,32 @@ region = Rect2(352, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qbtt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23tcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmudx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkalq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apwx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai0vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgm6k")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hdff1")
 }, {
 "duration": 1.0,
@@ -162,34 +188,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_o6qwv")
 }],
 "loop": true,
-"name": &"default",
+"name": &"normal",
 "speed": 11.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qbtt2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_23tcg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tmudx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tkalq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_apwx7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ai0vt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fgm6k")
-}],
-"loop": true,
-"name": &"hurt",
-"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -229,7 +229,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_1gnhd")
 }],
 "loop": true,
-"name": &"run",
+"name": &"running",
 "speed": 12.0
 }]
 
@@ -240,10 +240,17 @@ height = 36.0
 [node name="frog" type="Node2D"]
 script = ExtResource("1_xvrdk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_5d4x3")
-autoplay = "default"
-frame_progress = 0.342562
+[node name="frogfood" type="Area2D" parent="."]
+position = Vector2(5, 0)
+disable_mode = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="frogfood"]
+sprite_frames = SubResource("SpriteFrames_5d4x3")
+animation = &"running"
+autoplay = "normal"
+frame_progress = 0.52750033
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frogfood"]
 shape = SubResource("CapsuleShape2D_3swqn")
+
+[connection signal="body_entered" from="frogfood" to="." method="_on_frogfood_body_entered"]
