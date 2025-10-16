@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brw11q240wqkp"]
+[gd_scene load_steps=12 format=3 uid="uid://brw11q240wqkp"]
 
 [ext_resource type="PackedScene" uid="uid://cvm0r7piq6xp" path="res://Dude.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://bgschocpuqbrr" path="res://assets/Terrain (16x16).png" id="1_e2o6t"]
@@ -12,6 +12,10 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_feb5d"]
 normal = Vector2(-0.007842896, -0.99996924)
 distance = -323.2018
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ryrav"]
+normal = Vector2(1, 0)
+distance = 65.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("1_e2o6t")
@@ -88,11 +92,16 @@ physics_material_override = SubResource("PhysicsMaterial_e2o6t")
 position = Vector2(797, -21)
 shape = SubResource("WorldBoundaryShape2D_feb5d")
 
+[node name="CollisionShape2Dwa" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-358, -74)
+shape = SubResource("WorldBoundaryShape2D_ryrav")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(295, 314)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(3, 3)
+rotation_smoothing_enabled = true
 
 [node name="enemy" parent="." instance=ExtResource("3_feb5d")]
 position = Vector2(426, 340)
@@ -123,3 +132,10 @@ texture = ExtResource("5_7jktm")
 z_index = -1
 position = Vector2(527, 14)
 texture = ExtResource("5_7jktm")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.12306077, 0.22944507, 0.3506678, 1)
+energy = 0.4
+shadow_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="DirectionalLight2D"]
