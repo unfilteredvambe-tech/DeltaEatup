@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://sjtwdqn65xp1"]
+[gd_scene load_steps=39 format=3 uid="uid://sjtwdqn65xp1"]
 
 [ext_resource type="Texture2D" uid="uid://dhpx6fntvuor1" path="res://assets/sprites/Free assets/Main Characters/Ninja Frog/Idle (32x32).png" id="1_c3muq"]
 [ext_resource type="Script" uid="uid://bgu1se2ypaam" path="res://Scenes/frog.gd" id="1_xvrdk"]
@@ -233,6 +233,12 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xvrdk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anyvr"]
+radius = 12.0
+height = 36.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3swqn"]
 radius = 12.0
 height = 36.0
@@ -246,11 +252,27 @@ disable_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="frogfood"]
 sprite_frames = SubResource("SpriteFrames_5d4x3")
-animation = &"running"
+animation = &"hurt"
 autoplay = "normal"
-frame_progress = 0.52750033
+frame = 6
+frame_progress = 0.7421806
+
+[node name="RayCastright" type="RayCast2D" parent="frogfood"]
+target_position = Vector2(39, 0)
+
+[node name="RayCastleft" type="RayCast2D" parent="frogfood"]
+target_position = Vector2(-40, 0)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="frogfood"]
+physics_material_override = SubResource("PhysicsMaterial_xvrdk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frogfood/RigidBody2D"]
+shape = SubResource("CapsuleShape2D_anyvr")
+debug_color = Color(0.57214785, 0.3245714, 0.95748645, 0.42000002)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="frogfood"]
+position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_3swqn")
 
 [connection signal="body_entered" from="frogfood" to="." method="_on_frogfood_body_entered"]
+[connection signal="body_exited" from="frogfood" to="." method="_on_frogfood_body_exited"]

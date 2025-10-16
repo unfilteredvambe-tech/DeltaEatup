@@ -180,11 +180,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="dudeplayer" type="CharacterBody2D"]
 self_modulate = Color(0.83443666, 0.4577006, 0.10108272, 1)
-light_mask = 2
-visibility_layer = 2
-position = Vector2(2, 0)
 script = ExtResource("1_f8v2t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

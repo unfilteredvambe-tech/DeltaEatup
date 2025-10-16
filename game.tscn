@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://brw11q240wqkp"]
+[gd_scene load_steps=12 format=3 uid="uid://brw11q240wqkp"]
 
 [ext_resource type="PackedScene" uid="uid://cvm0r7piq6xp" path="res://Dude.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://bgschocpuqbrr" path="res://assets/Terrain (16x16).png" id="1_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://sjtwdqn65xp1" path="res://Scenes/frog.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://c3nfverd40s8g" path="res://Scenes/enemy.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://sjtwdqn65xp1" path="res://Scenes/frog.tscn" id="4_fc0e3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e2o6t"]
 
@@ -85,6 +86,7 @@ position = Vector2(356, 74)
 physics_material_override = SubResource("PhysicsMaterial_e2o6t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(265, 129)
 shape = SubResource("WorldBoundaryShape2D_feb5d")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -98,9 +100,6 @@ position = Vector2(295, 314)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(3, 3)
-
-[node name="frog" parent="." instance=ExtResource("3_feb5d")]
-position = Vector2(679, 339)
 
 [node name="Label" type="Label" parent="."]
 z_index = -1
@@ -128,3 +127,9 @@ offset_right = 828.0
 offset_bottom = 290.0
 text = "𝖈𝖆𝖙𝖈𝖍 𝖍𝖎𝖒 𝖇𝖊𝖋𝖔𝖗𝖊 𝖍𝖊 𝖊𝖘𝖈𝖆𝖕𝖊𝖘 !!!"
 label_settings = SubResource("LabelSettings_7jktm")
+
+[node name="enemy" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(426, 340)
+
+[node name="frog" parent="." instance=ExtResource("4_fc0e3")]
+position = Vector2(531, 338)
