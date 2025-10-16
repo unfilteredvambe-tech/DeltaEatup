@@ -2,7 +2,8 @@ extends Node2D
 @onready var target = $"."/dudeplayer
 const SPEED = 80
 
-var direction =1
+var direction = 1
+
 
 
 func _ready():

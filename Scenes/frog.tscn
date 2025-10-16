@@ -252,10 +252,8 @@ disable_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="frogfood"]
 sprite_frames = SubResource("SpriteFrames_5d4x3")
-animation = &"hurt"
-autoplay = "normal"
-frame = 6
-frame_progress = 0.7421806
+animation = &"running"
+autoplay = "running"
 
 [node name="RayCastright" type="RayCast2D" parent="frogfood"]
 target_position = Vector2(39, 0)
