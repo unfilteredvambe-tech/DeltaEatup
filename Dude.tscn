@@ -182,6 +182,7 @@ animations = [{
 
 [node name="dudeplayer" type="CharacterBody2D"]
 self_modulate = Color(0.83443666, 0.4577006, 0.10108272, 1)
+z_index = 1
 script = ExtResource("1_f8v2t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

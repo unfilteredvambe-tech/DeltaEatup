@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://brw11q240wqkp"]
+[gd_scene load_steps=16 format=3 uid="uid://brw11q240wqkp"]
 
 [ext_resource type="PackedScene" uid="uid://cvm0r7piq6xp" path="res://Dude.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://bgschocpuqbrr" path="res://assets/Terrain (16x16).png" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://8b0cc168a2r4" path="res://deltaeatup.gd" id="1_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://sjtwdqn65xp1" path="res://Scenes/frog.tscn" id="4_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://bk1xhl1lsnp4k" path="res://assets/pixel art/Free Pixel Art Forest/Preview/Background.png" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://m0vtowl8hbdh" path="res://assets/pixel art/Free Pixel Art Forest/PNG/Background layers/Layer_0003_6.png" id="6_ryrav"]
 [ext_resource type="Texture2D" uid="uid://diorobqeetgge" path="res://assets/pixel art/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="7_eow3j"]
+[ext_resource type="Script" uid="uid://jutdubiaphit" path="res://game_manager.gd" id="7_j5wjh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e2o6t"]
 
@@ -82,7 +84,18 @@ texture_region_size = Vector2i(7, 16)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_feb5d")
 
+[sub_resource type="LabelSettings" id="LabelSettings_eow3j"]
+outline_size = 2
+outline_color = Color(0.239059, 0.35246828, 0.77549523, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_vef74"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 57, -356, 0, 0, 0, 0, 1920, -339, 0, 0, 0, 0, 1886, 341, 0, 0, 0, 0, 62, 336)
+}
+point_count = 4
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_j5wjh")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(295, 314)
@@ -92,23 +105,29 @@ zoom = Vector2(3, 3)
 rotation_smoothing_enabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(356, 74)
 physics_material_override = SubResource("PhysicsMaterial_e2o6t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(797, -21)
 shape = SubResource("WorldBoundaryShape2D_feb5d")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(797, -21)
 shape = SubResource("WorldBoundaryShape2D_feb5d")
 
 [node name="CollisionShape2Dwa" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(-358, -74)
 shape = SubResource("WorldBoundaryShape2D_ryrav")
 
 [node name="frog" parent="." instance=ExtResource("4_fc0e3")]
+z_index = 1
 position = Vector2(531, 338)
+skew = 0.02617994
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(0.19473043, 0.46443003, 0.3615575, 1)
@@ -143,6 +162,26 @@ shadow_enabled = true
 
 [node name="Layer00110" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(880.0001, 48.749992)
+position = Vector2(879.00006, 58)
 scale = Vector2(2.7672412, 1.0296342)
 texture = ExtResource("7_eow3j")
+
+[node name="game manager" type="Node2D" parent="."]
+script = ExtResource("7_j5wjh")
+
+[node name="score_label" type="Label" parent="game manager"]
+offset_left = 109.0
+offset_top = 213.0
+offset_right = 184.0
+offset_bottom = 239.0
+text = "You ate :  X frogs"
+label_settings = SubResource("LabelSettings_eow3j")
+metadata/_edit_use_anchors_ = true
+
+[node name="Path2D" type="Path2D" parent="game manager"]
+curve = SubResource("Curve2D_vef74")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="game manager/Path2D"]
+unique_name_in_owner = true
+position = Vector2(57, -356)
+rotation = 0.0091248145

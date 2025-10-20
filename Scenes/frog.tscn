@@ -151,7 +151,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hurt",
-"speed": 6.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -236,14 +236,12 @@ animations = [{
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xvrdk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anyvr"]
-radius = 12.0
-height = 36.0
+radius = 9.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3swqn"]
-radius = 12.0
-height = 36.0
 
 [node name="frog" type="Node2D"]
+position = Vector2(-1, 0)
 script = ExtResource("1_xvrdk")
 metadata/_edit_group_ = true
 
@@ -253,19 +251,23 @@ disable_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="frogfood"]
 sprite_frames = SubResource("SpriteFrames_5d4x3")
-animation = &"running"
+animation = &"hurt"
 autoplay = "running"
+frame_progress = 0.69176376
+flip_h = true
 
 [node name="RayCastright" type="RayCast2D" parent="frogfood"]
-target_position = Vector2(39, 0)
+target_position = Vector2(19, -1)
 
 [node name="RayCastleft" type="RayCast2D" parent="frogfood"]
-target_position = Vector2(-40, 0)
+position = Vector2(2, 0)
+target_position = Vector2(-21, -1)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="frogfood"]
 physics_material_override = SubResource("PhysicsMaterial_xvrdk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="frogfood/RigidBody2D"]
+position = Vector2(2, 0)
 shape = SubResource("CapsuleShape2D_anyvr")
 debug_color = Color(0.57214785, 0.3245714, 0.95748645, 0.42000002)
 

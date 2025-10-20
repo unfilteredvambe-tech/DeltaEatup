@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brms7ojgrbovc"
+path="res://.godot/imported/Frog Sound Effect - GamingSoundEffects.mp3-44123982b9e788c308d5306183d31bc7.mp3str"
+
+[deps]
+
+source_file="res://assets/pixel art/Frog Sound Effect - GamingSoundEffects.mp3"
+dest_files=["res://.godot/imported/Frog Sound Effect - GamingSoundEffects.mp3-44123982b9e788c308d5306183d31bc7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
