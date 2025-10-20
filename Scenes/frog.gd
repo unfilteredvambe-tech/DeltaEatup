@@ -22,6 +22,7 @@ func _on_frogfood_body_entered(body:CharacterBody2D) -> void:
 @onready var ray_cast_left = $frogfood/RayCastleft
 
 
+
    
 
 
